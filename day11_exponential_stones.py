@@ -93,7 +93,7 @@ def blink_2(stones):
 
 def main():
     start_time = time.perf_counter()
-    print(task2(10000))
+    print(task2(1000))
     print(time.perf_counter() - start_time)
 
 if __name__ == "__main__":
