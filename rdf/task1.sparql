@@ -1,0 +1,11 @@
+PREFIX lan: <http://example.org/lan/>
+SELECT DISTINCT ?a ?b ?c
+WHERE {
+    ?a lan:connectedTo ?b .
+    ?b lan:connectedTo ?c .
+    ?a lan:connectedTo ?c .
+    FILTER (strStarts(str(?a), "http://example.org/lan/t") ||
+            strStarts(str(?b), "http://example.org/lan/t") ||
+            strStarts(str(?c), "http://example.org/lan/t"))
+    FILTER ((str(?a) < str(?b)) && (str(?b) < str(?c)))
+}
